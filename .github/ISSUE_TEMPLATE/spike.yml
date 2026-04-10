@@ -1,0 +1,89 @@
+name: "🔬 Spike / Research"
+description: "Time-boxed investigation or proof of concept"
+title: "[Spike] "
+labels:
+  - "type: spike"
+assignees:
+  - "AntHanna23"
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Spikes are time-boxed research tasks. The output is a **decision or design doc**, not production code.
+        > **Routing:** Set **Milestone** and **Assignee** in the sidebar. Default: `Backlog` / `AntHanna23`.
+
+  - type: textarea
+    id: question
+    attributes:
+      label: "Research Question"
+      description: "What specific question does this spike need to answer?"
+      placeholder: "e.g. What is the best approach for integrating Home Assistant webhooks?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: "Acceptance Criteria"
+      description: "What deliverable marks this spike as done? (Usually a doc, decision, or follow-up issues.)"
+      placeholder: |
+        - [ ] Decision doc written covering X, Y, Z
+        - [ ] Follow-up implementation issues created
+        - [ ] Key risks identified
+    validations:
+      required: true
+
+  - type: input
+    id: timebox
+    attributes:
+      label: "Timebox"
+      description: "Max time to spend before forcing a decision."
+      placeholder: "e.g. 2 days / 1 sprint"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: "Area"
+      options:
+        - "area: api"
+        - "area: backend"
+        - "area: frontend"
+        - "area: infra"
+        - "area: database"
+        - "area: build"
+        - "multiple"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: "Priority"
+      options:
+        - "priority: p1 — blocking design decisions"
+        - "priority: p2 — normal"
+        - "priority: p3 — exploratory"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: owner
+    attributes:
+      label: "Owner"
+      options:
+        - "sam-patel (api / backend)"
+        - "riley-chen (frontend)"
+        - "morgan-rivera (infra)"
+        - "jordan-blake (architecture / cross-cutting)"
+        - "anthony-hanna (product / devops)"
+    validations:
+      required: true
+
+  - type: input
+    id: weight
+    attributes:
+      label: "Estimated Weight (pts)"
+      placeholder: "e.g. 3"

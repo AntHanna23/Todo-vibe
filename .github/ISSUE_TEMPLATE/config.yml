@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: PM Playbooks
+    url: https://github.com/AntHanna23/Todo-vibe/tree/main/.github/skills
+    about: Triage, sprint planning, grooming, and metrics playbooks for Copilot and Claude

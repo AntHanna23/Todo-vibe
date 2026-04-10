@@ -11,73 +11,125 @@ body:
     attributes:
       value: |
         ## Before you submit
-        > **Routing note:** Every issue **must** have an **Assignee** and a **Milestone** set so it can be added to the project board.
-        > - **Assignee:** default to `AntHanna23` unless you know the right person.
-        > - **Milestone:** default to **`Backlog`** — this is the holding area for all new work.
-        >
-        > Set both fields in the sidebar on the right before submitting. If the `Backlog` milestone does not exist yet, ask a maintainer to create it.
+        Complete **all required fields** below. Issues missing priority, area, or acceptance criteria will be sent back to triage.
 
-  - type: input
-    id: milestone
-    attributes:
-      label: "Milestone (required)"
-      description: |
-        Which milestone should this issue belong to? Use `Backlog` for new work that has not been sprint-planned yet.
-        ⚠️ Also set the **Milestone** field in the GitHub sidebar on the right — this text box is a reminder and records your intent in the issue body, but the sidebar field is what routes the issue into the project.
-      placeholder: "Backlog"
-    validations:
-      required: true
-
-  - type: input
-    id: assignee
-    attributes:
-      label: "Assignee(s) (required)"
-      description: |
-        Who should own this issue? Default: `AntHanna23`. Separate multiple handles with commas.
-        ⚠️ Also set the **Assignees** field in the GitHub sidebar on the right — this text box is a reminder, but the sidebar field is what actually assigns the issue.
-      placeholder: "AntHanna23"
-    validations:
-      required: true
+        > **Routing:** Set the **Milestone** and **Assignee** in the GitHub sidebar before submitting.
+        > Default milestone: `Backlog` · Default assignee: `AntHanna23`
 
   - type: textarea
     id: description
     attributes:
       label: "What happened?"
-      description: "Describe the bug clearly. What did you do, what did you expect, what actually happened?"
-      placeholder: "Steps to reproduce..."
+      description: "Describe the bug. What did you do, what did you expect, what actually happened?"
+      placeholder: |
+        Steps to reproduce:
+        1.
+        2.
+        3.
+
+        Expected: ...
+        Actual: ...
     validations:
       required: true
 
   - type: textarea
-    id: expected
+    id: acceptance-criteria
     attributes:
-      label: "Expected Behavior"
-      description: "What should have happened instead?"
+      label: "Acceptance Criteria"
+      description: "What must be true for this bug to be considered fixed? At least 2 specific, testable criteria."
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: "Priority"
+      description: "How urgent is this? See SLAs in copilot-instructions.md."
+      options:
+        - "priority: p0 — blocker / data loss / app broken (same-day SLA)"
+        - "priority: p1 — high impact, current sprint"
+        - "priority: p2 — normal, within 2 sprints"
+        - "priority: p3 — low priority / polish"
     validations:
       required: true
 
   - type: dropdown
     id: area
     attributes:
-      label: "Area"
-      description: "Which part of the codebase does this bug relate to?"
+      label: "Primary Area"
+      description: "Which part of the codebase is affected? Add additional `area:` labels in the sidebar for multi-area bugs."
       options:
-        - "frontend"
-        - "api"
-        - "backend"
-        - "database"
-        - "infra"
-        - "build"
-        - "testing"
-        - "notifications"
-        - "tags"
-        - "reminders"
-        - "multiple / unsure"
+        - "area: frontend"
+        - "area: api"
+        - "area: backend"
+        - "area: database"
+        - "area: infra"
+        - "area: build"
+        - "area: testing"
+        - "area: notifications"
+        - "area: tags"
+        - "area: reminders"
+        - "multiple — see notes"
     validations:
       required: true
+
+  - type: dropdown
+    id: risk
+    attributes:
+      label: "Risk"
+      description: "How risky is the fix?"
+      options:
+        - "risk: low — single area, well-understood, minimal regression risk"
+        - "risk: medium — cross-file, needs testing, some uncertainty"
+        - "risk: high — cross-cutting, production impact, requires Tech Lead review"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: owner
+    attributes:
+      label: "Owner"
+      description: "Who should fix this? Match to the area above (see copilot-instructions.md ownership map)."
+      options:
+        - "riley-chen (frontend / notifications)"
+        - "sam-patel (api / backend / database / reminders / tags)"
+        - "morgan-rivera (infra / build)"
+        - "casey-morgan (testing)"
+        - "jordan-blake (cross-cutting / risk: high / priority: p0)"
+        - "anthony-hanna (product owner / devops)"
+    validations:
+      required: true
+
+  - type: input
+    id: weight
+    attributes:
+      label: "Estimated Weight (Fibonacci pts)"
+      description: "1–3 for small fixes, 3–5 for medium, 5–13 for large. Leave blank if unsure — triage will assign."
+      placeholder: "e.g. 2"
+
+  - type: textarea
+    id: technical-scope
+    attributes:
+      label: "Technical Scope"
+      description: "Which files or layers are affected? (Can be filled in during triage.)"
+      placeholder: "e.g. frontend/src/App.jsx — useReminders hook"
 
   - type: textarea
     id: notes
     attributes:
       label: "Additional Notes"
-      description: "Browser, OS, screenshots, logs, or any other relevant information."
+      description: "Browser, OS, screenshots, logs, or any other relevant context."
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ### After submitting
+        1. Set **Milestone** in the sidebar (`Backlog` if unsure)
+        2. Add `owner: <handle>` as a label in the sidebar
+        3. If `priority: p0` or `risk: high`, tag **jordan-blake** for review
+        4. Run the triage playbook: `.github/skills/triage.md`

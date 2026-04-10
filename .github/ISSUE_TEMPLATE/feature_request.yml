@@ -3,7 +3,6 @@ description: "Suggest a new feature or enhancement for Todo-vibe"
 title: "[Feature] "
 labels:
   - "type: feature"
-  - "enhancement"
 assignees:
   - "AntHanna23"
 
@@ -12,40 +11,17 @@ body:
     attributes:
       value: |
         ## Before you submit
-        > **Routing note:** Every issue **must** have an **Assignee** and a **Milestone** set so it can be added to the project board.
-        > - **Assignee:** default to `AntHanna23` unless you know the right person.
-        > - **Milestone:** default to **`Backlog`** — this is the holding area for all new work.
-        >
-        > Set both fields in the sidebar on the right before submitting. If the `Backlog` milestone does not exist yet, ask a maintainer to create it.
+        Complete **all required fields** below. Issues missing acceptance criteria, area, or priority will be sent back to triage.
 
-  - type: input
-    id: milestone
-    attributes:
-      label: "Milestone (required)"
-      description: |
-        Which milestone should this issue belong to? Use `Backlog` for new work that has not been sprint-planned yet.
-        ⚠️ Also set the **Milestone** field in the GitHub sidebar on the right — this text box is a reminder and records your intent in the issue body, but the sidebar field is what routes the issue into the project.
-      placeholder: "Backlog"
-    validations:
-      required: true
-
-  - type: input
-    id: assignee
-    attributes:
-      label: "Assignee(s) (required)"
-      description: |
-        Who should own this issue? Default: `AntHanna23`. Separate multiple handles with commas.
-        ⚠️ Also set the **Assignees** field in the GitHub sidebar on the right — this text box is a reminder, but the sidebar field is what actually assigns the issue.
-      placeholder: "AntHanna23"
-    validations:
-      required: true
+        > **Routing:** Set the **Milestone** and **Assignee** in the GitHub sidebar before submitting.
+        > Default milestone: `Backlog` · Default assignee: `AntHanna23`
 
   - type: textarea
     id: description
     attributes:
       label: "Description"
-      description: "What problem does this feature solve? Describe the current behavior and what you would like to see instead."
-      placeholder: "As a user, I want..."
+      description: "What problem does this solve? Describe the current behavior and what you'd like instead."
+      placeholder: "As a user, I want to... so that..."
     validations:
       required: true
 
@@ -53,43 +29,100 @@ body:
     id: acceptance-criteria
     attributes:
       label: "Acceptance Criteria"
-      description: "What must be true for this feature to be considered done? List at least 2–3 specific, testable criteria."
+      description: "What must be true for this to be considered done? At least 2–3 specific, testable criteria."
       placeholder: |
-        - [ ] Criterion 1
-        - [ ] Criterion 2
-        - [ ] Criterion 3
+        - [ ] ...
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: "Priority"
+      description: "How important is this relative to other work?"
+      options:
+        - "priority: p1 — high impact, should be in current sprint"
+        - "priority: p2 — normal, within 2 sprints"
+        - "priority: p3 — low priority / nice to have"
     validations:
       required: true
 
   - type: dropdown
     id: area
     attributes:
-      label: "Area"
-      description: "Which part of the codebase does this feature touch?"
+      label: "Primary Area"
+      description: "Which part of the codebase does this touch? Add more `area:` labels in the sidebar for multi-area features."
       options:
-        - "frontend"
-        - "api"
-        - "backend"
-        - "database"
-        - "infra"
-        - "build"
-        - "testing"
-        - "notifications"
-        - "tags"
-        - "reminders"
-        - "multiple / unsure"
+        - "area: frontend"
+        - "area: api"
+        - "area: backend"
+        - "area: database"
+        - "area: infra"
+        - "area: build"
+        - "area: testing"
+        - "area: notifications"
+        - "area: tags"
+        - "area: reminders"
+        - "multiple — see notes"
     validations:
       required: true
+
+  - type: dropdown
+    id: risk
+    attributes:
+      label: "Risk"
+      description: "How risky is implementing this?"
+      options:
+        - "risk: low — single area, well-understood, minimal regression risk"
+        - "risk: medium — cross-file, needs testing, some uncertainty"
+        - "risk: high — cross-cutting, production impact, requires Tech Lead review"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: owner
+    attributes:
+      label: "Owner"
+      description: "Who should build this? Match to the area above (see copilot-instructions.md ownership map)."
+      options:
+        - "riley-chen (frontend / notifications)"
+        - "sam-patel (api / backend / database / reminders / tags)"
+        - "morgan-rivera (infra / build)"
+        - "casey-morgan (testing)"
+        - "jordan-blake (cross-cutting / risk: high)"
+        - "anthony-hanna (product owner / devops)"
+    validations:
+      required: true
+
+  - type: input
+    id: weight
+    attributes:
+      label: "Estimated Weight (Fibonacci pts)"
+      description: "1–3 small, 3–5 medium, 5–13 large. Leave blank if unsure — triage will assign."
+      placeholder: "e.g. 5"
 
   - type: textarea
     id: technical-scope
     attributes:
       label: "Technical Scope"
-      description: "Which layers or files are likely affected? (Can be filled in during Triage if unknown.)"
-      placeholder: "e.g. frontend component, backend router, database model..."
+      description: "Which files or layers are likely affected?"
+      placeholder: "e.g. frontend/src/components/TodoModal.jsx, backend/routers/todos.py"
 
   - type: textarea
     id: notes
     attributes:
       label: "Additional Notes"
-      description: "Any extra context, screenshots, links, or open questions."
+      description: "Any extra context, links, open questions, or dependencies on other issues."
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ### After submitting
+        1. Set **Milestone** in the sidebar (`Backlog` if unsure)
+        2. Add `owner: <handle>` as a label in the sidebar
+        3. If `risk: high`, tag **jordan-blake** for review
+        4. If scope is very large (estimated > 13 pts), add `needs-decomposition` label
+        5. Run the triage playbook: `.github/skills/triage.md`

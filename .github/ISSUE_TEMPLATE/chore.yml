@@ -1,0 +1,88 @@
+name: "🔧 Chore / Maintenance"
+description: "Dependency updates, config changes, cleanup, CI fixes"
+title: "[Chore] "
+labels:
+  - "type: chore"
+assignees:
+  - "AntHanna23"
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        > **Routing:** Set **Milestone** and **Assignee** in the sidebar. Default: `Backlog` / `AntHanna23`.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "What needs to be done?"
+      description: "Describe the maintenance task and why it's needed."
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: "Acceptance Criteria"
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: "Area"
+      options:
+        - "area: build"
+        - "area: infra"
+        - "area: backend"
+        - "area: frontend"
+        - "area: database"
+        - "area: testing"
+        - "multiple"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: "Priority"
+      options:
+        - "priority: p1 — blocking other work"
+        - "priority: p2 — normal"
+        - "priority: p3 — low / whenever"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: risk
+    attributes:
+      label: "Risk"
+      options:
+        - "risk: low"
+        - "risk: medium"
+        - "risk: high"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: owner
+    attributes:
+      label: "Owner"
+      options:
+        - "morgan-rivera (infra / build)"
+        - "sam-patel (backend)"
+        - "riley-chen (frontend)"
+        - "casey-morgan (testing)"
+        - "anthony-hanna (devops)"
+        - "jordan-blake (cross-cutting)"
+    validations:
+      required: true
+
+  - type: input
+    id: weight
+    attributes:
+      label: "Estimated Weight (pts)"
+      placeholder: "e.g. 1"
