@@ -45,44 +45,7 @@ body:
     validations:
       required: true
 
-  - type: dropdown
-    id: priority
+  - type: markdown
     attributes:
-      label: "Priority"
-      options:
-        - "priority: p1 — blocking other work"
-        - "priority: p2 — normal"
-        - "priority: p3 — low / whenever"
-    validations:
-      required: true
-
-  - type: dropdown
-    id: risk
-    attributes:
-      label: "Risk"
-      options:
-        - "risk: low"
-        - "risk: medium"
-        - "risk: high"
-    validations:
-      required: true
-
-  - type: dropdown
-    id: owner
-    attributes:
-      label: "Owner"
-      options:
-        - "morgan-rivera (infra / build)"
-        - "sam-patel (backend)"
-        - "riley-chen (frontend)"
-        - "casey-morgan (testing)"
-        - "anthony-hanna (devops)"
-        - "jordan-blake (cross-cutting)"
-    validations:
-      required: true
-
-  - type: input
-    id: weight
-    attributes:
-      label: "Estimated Weight (pts)"
-      placeholder: "e.g. 1"
+      value: |
+        > Priority, risk, owner, and weight are assigned during triage. Run `.github/skills/triage.md` after submitting.
