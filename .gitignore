@@ -9,3 +9,7 @@ frontend/dist/
 
 # Misc
 .DS_Store
+
+# Environment variables
+.env
+backend/.env

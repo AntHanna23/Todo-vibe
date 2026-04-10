@@ -2,6 +2,7 @@
 name: create-issue
 description: Create a new GitHub issue for the Todo-vibe project following the intake workflow. Guides through title, description, type, and area, then creates the issue with proper labels and sets it to Intake status. Use when asked to create a ticket, issue, or story.
 allowed-tools: Bash
+model: opus
 ---
 
 You are creating a new GitHub issue for the Todo-vibe project (repo: AntHanna23/Todo-vibe) following the intake workflow.

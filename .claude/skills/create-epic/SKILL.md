@@ -2,6 +2,7 @@
 name: create-epic
 description: Create a new GitHub Milestone (Epic) for the Todo-vibe project using the required template structure. Use when asked to create an epic, milestone, or strategic initiative.
 allowed-tools: Bash
+model: opus
 ---
 
 You are creating a new GitHub Milestone (Epic) for the Todo-vibe project (repo: AntHanna23/Todo-vibe).
