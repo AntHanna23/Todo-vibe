@@ -1,0 +1,95 @@
+name: "✨ Feature Request"
+description: "Suggest a new feature or enhancement for Todo-vibe"
+title: "[Feature] "
+labels:
+  - "type: feature"
+  - "enhancement"
+assignees:
+  - "AntHanna23"
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Before you submit
+        > **Routing note:** Every issue **must** have an **Assignee** and a **Milestone** set so it can be added to the project board.
+        > - **Assignee:** default to `AntHanna23` unless you know the right person.
+        > - **Milestone:** default to **`Backlog`** — this is the holding area for all new work.
+        >
+        > Set both fields in the sidebar on the right before submitting. If the `Backlog` milestone does not exist yet, ask a maintainer to create it.
+
+  - type: input
+    id: milestone
+    attributes:
+      label: "Milestone (required)"
+      description: |
+        Which milestone should this issue belong to? Use `Backlog` for new work that has not been sprint-planned yet.
+        ⚠️ Also set the **Milestone** field in the GitHub sidebar on the right — this text box is a reminder and records your intent in the issue body, but the sidebar field is what routes the issue into the project.
+      placeholder: "Backlog"
+    validations:
+      required: true
+
+  - type: input
+    id: assignee
+    attributes:
+      label: "Assignee(s) (required)"
+      description: |
+        Who should own this issue? Default: `AntHanna23`. Separate multiple handles with commas.
+        ⚠️ Also set the **Assignees** field in the GitHub sidebar on the right — this text box is a reminder, but the sidebar field is what actually assigns the issue.
+      placeholder: "AntHanna23"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description"
+      description: "What problem does this feature solve? Describe the current behavior and what you would like to see instead."
+      placeholder: "As a user, I want..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: "Acceptance Criteria"
+      description: "What must be true for this feature to be considered done? List at least 2–3 specific, testable criteria."
+      placeholder: |
+        - [ ] Criterion 1
+        - [ ] Criterion 2
+        - [ ] Criterion 3
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: "Area"
+      description: "Which part of the codebase does this feature touch?"
+      options:
+        - "frontend"
+        - "api"
+        - "backend"
+        - "database"
+        - "infra"
+        - "build"
+        - "testing"
+        - "notifications"
+        - "tags"
+        - "reminders"
+        - "multiple / unsure"
+    validations:
+      required: true
+
+  - type: textarea
+    id: technical-scope
+    attributes:
+      label: "Technical Scope"
+      description: "Which layers or files are likely affected? (Can be filled in during Triage if unknown.)"
+      placeholder: "e.g. frontend component, backend router, database model..."
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: "Additional Notes"
+      description: "Any extra context, screenshots, links, or open questions."
