@@ -1,0 +1,160 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Independent Study Proposal (ISE)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt]{article}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{EN.635.801 Independent Study}
+\lhead{Johns Hopkins University -- Whiting School of Engineering}
+\cfoot{\thepage}
+
+\setstretch{1.15}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\begin{center}
+    {\Large \textbf{Independent Study Proposal}}\\[6pt]
+    {\large EN.635.801 --- Independent Study in Information Systems Engineering}\\[12pt]
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Student Information}
+
+\begin{tabular}{ll}
+\textbf{Student Name:} & Anthony Hanna \\
+\textbf{JHU Email:} & ahanna13@jhu.edu \\
+\textbf{Program:} & M.S. in Information Systems Engineering \\
+\textbf{Faculty Mentor:} & Ben Johnson, Ben Rodriguez, PhD, Amir Saeed \\
+\textbf{Term:} & Spring 2026 \\
+\end{tabular}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Course Description (Catalog Reference)}
+
+\noindent
+EN.635.801 \textit{Independent Study in Information Systems Engineering} permits graduate students to work with a faculty mentor to explore a topic in depth or conduct research in selected areas. Requirements include submission of a substantial written research paper. Prerequisites: seven ISE graduate courses including the foundational sequence, three concentration courses, and two courses numbered 635.7xx; or admission to the Post-Master’s Certificate. Students must also obtain permission from the faculty mentor, the student's academic advisor, and the program chair.
+
+This independent study focuses on the design, documentation, and evaluation of a low-code software application built using modern AI-assisted development resources. The primary outcome of the course is a structured technical document that describes how AI tools, such as large language models, integrated development assistants, and workflow-aware automation can be used to improve product management activities.
+
+Rather than emphasizing fully autonomous systems, the course positions AI as an assistive layer integrated into existing development platforms, including Git-based repositories, issue tracking systems, and continuous integration pipelines. The study examines how developers and technical leaders can assemble low-code workflows that leverage AI to support tasks such as ticket generation, code review summarization, debugging assistance, estimation, and project reporting, while preserving human oversight and decision-making.
+
+Through hands-on experimentation, prototyping, and analysis, the course aims to produce a practical reference that outlines architectural patterns, integration considerations, and limitations of current AI tooling. The resulting work serves both as an applied learning experience in AI-augmented project management and as guidance for practitioners interested in building low-code, AI-supported workflows using contemporary development ecosystems.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Proposed Independent Study Title}
+
+\textbf{Design and Evaluation of AI-Assisted Developer and Product Management Workflows in Git-Centric Software Teams}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Motivation and Background}
+
+Modern software engineering teams rely on platforms such as GitLab, GitHub, Jira, and the broader Atlassian ecosystem to manage issues, code reviews, security scans, and configuration checks. As developers advance into senior and technical leadership roles, a growing proportion of their time is spent on administrative, coordination, and planning tasks rather than direct engineering work.
+
+Recent advances in AI-assisted development tools including large language models, retrieval-augmented generation (RAG), static analysis models, and workflow orchestration suggest that portions of these tasks can be meaningfully augmented when sufficient project context is available. Tools such as GitHub Copilot and GitLab Duo demonstrate that AI can already provide value in localized coding and review scenarios, but their impact is often constrained to individual interactions rather than integrated workflows.
+
+This independent study builds on that foundation by examining how AI assistance can be applied to the critical handoff between product management and engineering when new work enters a software project. The research investigates how AI-assisted systems can support intake triage, context enrichment, clarification, prioritization, ticket composition, and routing, with the goal of reducing manual overhead, improving the quality and consistency of work items, and shortening feedback loops before the work is handed off to engineers for implementation.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Research Objectives}
+
+This independent study is structured around a set of research objectives that examine how AI-assisted systems can support collaboration and coordination between product management and engineering across the software delivery lifecycle. The objectives focus on the points where new work is introduced, interpreted, refined, and tracked, with particular attention to how non-engineering or lightly technical stakeholders interact with engineering workflows and artifacts.
+
+\begin{enumerate}[label=\textbf{O\arabic*.}]
+    \item \textbf{Work Intake and Structuring} \\
+    Determine the extent to which AI assistance can support the intake of new work items such as bugs, feature requests, and enhancements by transforming incomplete or ambiguous inputs into structured, actionable artifacts suitable for downstream engineering workflows.
+
+    \item \textbf{Contextual Enrichment} \\
+    Investigate how AI systems can retrieve and incorporate relevant project context such as existing tickets, documentation, ownership mappings, code repositories, release history, and operational signals in order to improve the accuracy, completeness, and consistency of generated work artifacts while minimizing unsupported or hallucinated content.
+
+    \item \textbf{Prioritization and Decision Support} \\
+    Evaluate whether AI-assisted techniques can meaningfully aid product managers and related stakeholders in assessing priority, scope, and impact by synthesizing technical signals and project constraints into transparent and explainable recommendations.
+
+    \item \textbf{Handoff Quality and Coordination} \\
+    Assess the impact of AI-generated or AI-augmented artifacts on the quality of handoffs between product management and engineering, including clarity of requirements, reduction in follow-up clarification, correctness of routing or ownership, and time to effective engineering engagement.
+
+    \item \textbf{PM-Adjacent Technical Assistance} \\
+    Explore how AI tools can enable product managers or other stakeholders with limited coding experience to participate more effectively in technical coordination activities such as reviewing code changes at a high level, monitoring build and deployment pipelines, interpreting test failures, and tracking delivery progress without requiring deep implementation expertise.
+
+    \item \textbf{Governance, Trust, and Adoption} \\
+    Examine the practical constraints of deploying AI-assisted systems in real-world software organizations, including approval workflows, auditability, data sensitivity, confidence calibration, and stakeholder trust, and identify conditions under which such systems are operationally viable.
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Scope of Work and Methodology}
+
+The student will design and evaluate a prototype AI-assisted system that supports coordination between product management and engineering as new work enters and progresses through a software project. The system emphasizes interpretation, context enrichment, artifact generation, and handoff quality, with selective technical awareness drawn from version-control and delivery systems.
+
+\subsection*{1. Literature and Ecosystem Review}
+
+The first phase of the study involves a comprehensive review of existing AI-assisted tools and research related to software project coordination and workflow automation. This includes surveying commercial platforms such as GitHub Copilot, GitLab Duo, and Atlassian Intelligence to understand how current systems support ticket creation, planning, reporting, and limited technical insight for non-engineering stakeholders. The review will also examine academic and industry research on AI-supported requirements analysis, issue triage, context retrieval, and agent-based workflow orchestration. The objective of this phase is to identify gaps where current tools fall short in translating raw project signals into high-quality, engineering-ready artifacts.
+
+\subsection*{2. System Design and Architecture}
+
+The system design phase focuses on defining a secure and modular architecture capable of operating within an organization’s existing development environment. This includes designing a self-hosted framework using open-source or local language models and establishing controlled integrations with platforms such as GitLab, GitHub, and Jira. A central component of the architecture is a context-retrieval pipeline that aggregates relevant project information, including issue history, repository metadata, commit summaries, ownership mappings, and CI pipeline outcomes. This contextual foundation enables AI components to generate grounded and auditable outputs while respecting access control and data sensitivity constraints. The outcome of this phase is a detailed architectural design describing system components, data flow, and integration boundaries.
+
+\subsection*{3. Prototype Development}
+
+During the development phase, the student will implement a working prototype that supports AI-assisted intake and refinement of new work items. The prototype will accept inputs such as bug reports, feature requests, operational alerts, or stakeholder descriptions and produce structured artifacts suitable for engineering workflows. Core capabilities include automated clarification of incomplete inputs, enrichment with relevant project context, prioritization support, and generation or updating of tickets in project-management systems. The prototype will also explore limited PM-adjacent technical assistance, such as summarizing code changes at a high level, interpreting CI pipeline results, or explaining test failures in non-implementation terms. Development will follow an iterative process informed by observed system behavior and practical constraints.
+
+\subsection*{4. Evaluation Framework}
+
+The evaluation framework defines the criteria and methods used to assess the effectiveness of the prototype in realistic project scenarios. Evaluation metrics include the completeness and clarity of generated artifacts, reduction in follow-up clarification between product management and engineering, correctness of routing or ownership suggestions, and time to effective engineering engagement. Qualitative measures such as perceived usefulness, trust, and workflow impact will be assessed through scenario-based evaluations using representative repositories and project histories. Comparisons between baseline manual workflows and AI-assisted workflows will be used to identify where automation provides measurable value and where human oversight remains necessary.
+
+\subsection*{5. Analysis and Research Paper}
+
+After completing the prototype and evaluation stages, the student will synthesize the results into a structured research paper. This document will articulate the motivation for the project, the design decisions underlying the system architecture, the methods used in implementation and evaluation, and the insights gained from experiments. The analysis will highlight strengths, limitations, and unexpected behaviors observed during testing, as well as reflect on broader considerations such as security, trust, and organizational adoption. The final report will present a cohesive narrative describing whether and how AI-driven automation can support real-world project-management workflows at scale.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Expected Deliverables}
+
+\begin{enumerate}
+    \item \textbf{A comprehensive research paper} (15--25 pages) addressing motivation, background, system design, methods, evaluation, and conclusions.
+    \item \textbf{A conference-ready manuscript}, suitable for submission to a peer-reviewed venue in software engineering, AI systems, DevSecOps, or agentic automation. Submission during or immediately following the term is expected when appropriate.
+    \item \textbf{A functional prototype} of an AI automation tool with documented setup instructions.
+    \item \textbf{Technical documentation} including architecture diagrams, model descriptions, and API integration workflows.
+    \item \textbf{Evaluation results} demonstrating performance across representative development scenarios.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section*{Assessment Criteria}
+
+% Student performance will be evaluated across:
+
+% \begin{itemize}
+%     \item Depth and clarity of research synthesis.
+%     \item Technical rigor in prototype implementation.
+%     \item Evaluation design and analytic quality.
+%     \item Completeness and professionalism of the written report.
+%     \item Alignment with graduate-level expectations for ISE.
+% \end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Timeline}
+
+\begin{tabular}{p{0.25\linewidth} p{0.65\linewidth}}
+\textbf{Modules 1--2}  & Literature review, problem framing, and definition of system requirements. \\
+\textbf{Modules 3--5}  & Architecture design, prototype scaffolding, and integration planning. \\
+\textbf{Modules 6--9}  & Development of automation components; implementation of ticketing, code review, configuration scanning, and debugging agents. \\
+\textbf{Modules 10--12} & Iterative testing, refinement, and construction of evaluation scenarios. \\
+\textbf{Module 13} & Formal evaluation, experiments, performance analysis, and comparison with baseline workflows. \\
+\textbf{Module 14} & Preparation of the final research paper and conference-ready manuscript; submission of all deliverables. \\
+\end{tabular}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
